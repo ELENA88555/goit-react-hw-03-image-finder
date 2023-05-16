@@ -27,7 +27,7 @@ export class ImageGallery extends Component {
       fetchImages(this.props.searchImg)
         .then(response => {
           if (!response.ok) {
-            throw new Error(response.status);
+            return Promise.reject(new Error('OOPS'))
           }
           return response.json();
         })
@@ -41,7 +41,7 @@ export class ImageGallery extends Component {
       fetchImages(this.props.searchImg, this.props.page)
         .then(response => {
           if (!response.ok) {
-            throw new Error(response.status);
+            return Promise.reject(new Error('OOPS'))
           }
           return response.json();
         })

@@ -48,7 +48,7 @@ toggleModal = () =>{
           loadMore={loadMoreBtn}
           page={page}
         ></ImageGallery>
-        {showModal && <Modal url={modalImg} onClose={this.toggleModal} />}
+        {showModal && <Modal url={ modalImg} onClose={this.toggleModal} />}
       </div>
     );
   }
