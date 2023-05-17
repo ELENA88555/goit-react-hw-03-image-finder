@@ -3,7 +3,7 @@ import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import css from './ImageGallery.module.css';
 import { fetchImages } from 'servises/fetchImages';
 import { Button } from 'components/Button/Button';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import { Loader } from '../Loader/Loader';
 
 const STATUS = {
@@ -67,21 +67,20 @@ export class ImageGallery extends Component {
       return (
         <>
           <ul className={css.imageGallery}>
-            {images.map(({ id, webformatURL, tags }) => (
+            {images.map(({ id, largeImageURL, tags }) => (
               <ImageGalleryItem
                 key={id}
-                url={webformatURL}
+                url={largeImageURL}
                 tags={tags}
                 onClick={this.props.onClick}
               />
             ))}
           </ul>
-          {this.state.images.length !== 0  ? (
-            <Button onClick={this.props.loadMore} />
-          ) : (
-            toast.error('Please, write search name')
-          )}
-
+          {this.state.images.length !== 0  
+          ? ( <Button onClick={this.props.loadMore} />)
+            : (error )
+         
+          }
           {/* {if (this.state.images.length !== 0 ) 
 { <Button onClick={this.props.loadMore} />}
 if ( this.state.images.length === this.state.images.total)
