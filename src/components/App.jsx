@@ -14,7 +14,7 @@ export class App extends Component {
     totalImages: 0,
     error: '',
     modalImg: '',
-    largeImageURL: ''
+    largeImageURL: '',
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -40,7 +40,6 @@ export class App extends Component {
             page: 1,
             images: imagesArr,
             totalImages: totalHits,
-            
           });
         })
         .catch(error => this.setState({ error: 'OOPS' }))
@@ -88,25 +87,20 @@ export class App extends Component {
 
   getLargeImg = largeImageURL => {
     this.toggleModal();
-    this.setState({ modalImg: largeImageURL});
+    this.setState({ modalImg: largeImageURL });
   };
 
   render() {
     const { handleSearchForm, loadMoreBtn, toggleModal, getLargeImg } = this;
-    const {loading,  totalImages, images, modalImg, showModal, page } = this.state;
+    const { loading, totalImages, images, modalImg, showModal, page } =
+      this.state;
 
     return (
       <div>
-        <Searchbar onSubmit={handleSearchForm}></Searchbar>{' '}
-        
-        <ImageGallery
-          images={images}
-          openModal={getLargeImg}
-
-        ></ImageGallery>
+        <Searchbar onSubmit={handleSearchForm}></Searchbar>
+        <ImageGallery images={images} openModal={getLargeImg}></ImageGallery>
         {loading && <Loader></Loader>}
-         
-        {images.length >= 12 && images.length <  totalImages && (
+        {images.length >= 12 && images.length < totalImages && (
           <Button onClick={loadMoreBtn} />
         )}
         {showModal && <Modal url={modalImg} onClose={toggleModal} />}
@@ -114,5 +108,3 @@ export class App extends Component {
     );
   }
 }
-
-
