@@ -10,7 +10,7 @@ state = {
 }
 
  handleChange = event => {
-  this.setState({value: event.target.value.toLowerCase()})
+  this.setState({value: event.target.value.toLowerCase().trim()})
   };
 
 handleSubmit = (event)=> {
