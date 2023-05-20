@@ -11,17 +11,18 @@ export class Modal extends Component {
     window.removeEventListener('keydown', this.onEscClick);
   }
 
+  onEscClick = event => {
+    if (event.code === 'Escape') {
+      this.props.onClose();
+    }
+  };
+
   clickBackdrop = event => {
     if (event.target === event.currentTarget) {
       this.props.onClose();
     }
   };
 
-  onEscClick = event => {
-    if (event.code === 'Escape') {
-      this.props.onClose();
-    }
-  };
 
   render() {
     return (

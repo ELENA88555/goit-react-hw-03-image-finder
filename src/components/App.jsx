@@ -92,7 +92,7 @@ export class App extends Component {
 
   render() {
     const { handleSearchForm, loadMoreBtn, toggleModal, getLargeImg } = this;
-    const { loading, totalImages, images, modalImg, showModal, page } =
+    const { loading, totalImages, images, modalImg, showModal} =
       this.state;
 
     return (
